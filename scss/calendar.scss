@@ -1,21 +1,70 @@
+$day-size: 64px;
+
 .calendar-card{
     border: 1px solid $divider;
-    width: 595px;
-    height: 425px;
+
+    .calendar-title{
+        border: 1px solid $divider;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .calendar-week-header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    
+            border: 1px solid $divider;
+            color: $accent;
+            font-size: 0.875rem;
+            height: 36px;
+            width: 100%;
+        }
+    }
 
     .calendar-body{
-        .calendar-row-*{
-            display: flex;
-        }
+        width: ($day-size+2)*7;
+        height: ($day-size+2)*5;
 
-        .calendar-row-1{
-            
-        }
+        display: flex;
+        flex-wrap: wrap;
 
         .calendar-day{
+            display: flex;
+            justify-content: center;
+
             border: 1px solid $divider;
-            width: 80px;
-            height: 80px;
+            width: $day-size;
+            height: $day-size;
+            z-index: 50;
+
+            h6{
+                font-size: 0.875rem;
+                margin: 12px 0 0 0;
+
+                &.current-day{
+                    color: white;
+                    z-index: 50;
+                }
+            }
+
+            .current-day-mark{ 
+                border-radius: 100%;
+                background-color: blue;
+                display: block;
+                margin: 8px 0 0 0;
+                position: absolute;
+                z-index: 10;
+                width: 24px;
+                height: 24px;
+            }
         }
     }
 }

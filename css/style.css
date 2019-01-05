@@ -1,3 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+html, body {
+  color: #212121;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px; }
+
+h6 {
+  font-weight: 500;
+  font-size: 1.25rem; }
+
 html, body {
   height: 100%;
   margin: 0; }
@@ -8,13 +19,50 @@ body {
   align-items: center; }
 
 .calendar-card {
-  border: 1px solid #bdbdbd;
-  width: 595px;
-  height: 425px; }
+  border: 1px solid #bdbdbd; }
+  .calendar-card .calendar-title {
+    border: 1px solid #bdbdbd;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .calendar-card .calendar-week-header {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .calendar-card .calendar-week-header div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #bdbdbd;
+      color: #ff9800;
+      font-size: 0.875rem;
+      height: 36px;
+      width: 100%; }
   .calendar-card .calendar-body {
+    width: 462px;
+    height: 330px;
     display: flex;
     flex-wrap: wrap; }
     .calendar-card .calendar-body .calendar-day {
+      display: flex;
+      justify-content: center;
       border: 1px solid #bdbdbd;
-      width: 80px;
-      height: 80px; }
+      width: 64px;
+      height: 64px;
+      z-index: 50; }
+      .calendar-card .calendar-body .calendar-day h6 {
+        font-size: 0.875rem;
+        margin: 12px 0 0 0; }
+        .calendar-card .calendar-body .calendar-day h6.current-day {
+          color: white;
+          z-index: 50; }
+      .calendar-card .calendar-body .calendar-day .current-day-mark {
+        border-radius: 100%;
+        background-color: blue;
+        display: block;
+        margin: 8px 0 0 0;
+        position: absolute;
+        z-index: 10;
+        width: 24px;
+        height: 24px; }
