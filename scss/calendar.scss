@@ -1,10 +1,12 @@
 $day-size: 64px;
 
 .calendar-card{
-    border: 1px solid $divider;
+    @include elevation(1);
+    background-color: white;
 
     .calendar-title{
-        border: 1px solid $divider;
+        background-color: $primary;
+        color: white;
         height: 40px;
         display: flex;
         justify-content: center;
@@ -15,39 +17,54 @@ $day-size: 64px;
         display: flex;
         justify-content: center;
         align-items: center;
+        border: 1px solid $divider;
 
         div{
             display: flex;
             justify-content: center;
             align-items: center;
-    
-            border: 1px solid $divider;
+
+            border-style: solid;
+            border-color: $divider;
+            border-width: 0 1px 0 0;
+
             color: $accent;
             font-size: 0.875rem;
             height: 36px;
             width: 100%;
+
+            &:last-child{
+                border: none;
+            }
         }
     }
 
     .calendar-body{
-        width: ($day-size+2)*7;
-        height: ($day-size+2)*5;
+        width: ($day-size+1)*7;
+        height: ($day-size+1)*5;
 
         display: flex;
         flex-wrap: wrap;
+
+        border-style: solid;
+        border-color: $divider;
+        border-width: 0 0 0 1px;
 
         .calendar-day{
             display: flex;
             justify-content: center;
 
-            border: 1px solid $divider;
+            border-style: solid;
+            border-color: $divider;
+            border-width: 0 1px 1px 0;
+
             width: $day-size;
             height: $day-size;
             z-index: 50;
 
             h6{
                 font-size: 0.875rem;
-                margin: 12px 0 0 0;
+                margin: 8px 0 0 0;
 
                 &.current-day{
                     color: white;
@@ -57,13 +74,17 @@ $day-size: 64px;
 
             .current-day-mark{ 
                 border-radius: 100%;
-                background-color: blue;
+                background-color: $accent;
                 display: block;
-                margin: 8px 0 0 0;
+                margin: 4px 0 0 0;
                 position: absolute;
                 z-index: 10;
                 width: 24px;
                 height: 24px;
+            }
+
+            &:hover{
+                background-color: lightgray;
             }
         }
     }

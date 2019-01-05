@@ -14,14 +14,17 @@ html, body {
   margin: 0; }
 
 body {
+  background-color: #c5cae9;
   display: flex;
   justify-content: center;
   align-items: center; }
 
 .calendar-card {
-  border: 1px solid #bdbdbd; }
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  background-color: white; }
   .calendar-card .calendar-title {
-    border: 1px solid #bdbdbd;
+    background-color: #3f51b5;
+    color: white;
     height: 40px;
     display: flex;
     justify-content: center;
@@ -29,40 +32,52 @@ body {
   .calendar-card .calendar-week-header {
     display: flex;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    border: 1px solid #bdbdbd; }
     .calendar-card .calendar-week-header div {
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 1px solid #bdbdbd;
+      border-style: solid;
+      border-color: #bdbdbd;
+      border-width: 0 1px 0 0;
       color: #ff9800;
       font-size: 0.875rem;
       height: 36px;
       width: 100%; }
+      .calendar-card .calendar-week-header div:last-child {
+        border: none; }
   .calendar-card .calendar-body {
-    width: 462px;
-    height: 330px;
+    width: 455px;
+    height: 325px;
     display: flex;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    border-style: solid;
+    border-color: #bdbdbd;
+    border-width: 0 0 0 1px; }
     .calendar-card .calendar-body .calendar-day {
       display: flex;
       justify-content: center;
-      border: 1px solid #bdbdbd;
+      border-style: solid;
+      border-color: #bdbdbd;
+      border-width: 0 1px 1px 0;
       width: 64px;
       height: 64px;
       z-index: 50; }
       .calendar-card .calendar-body .calendar-day h6 {
         font-size: 0.875rem;
-        margin: 12px 0 0 0; }
+        margin: 8px 0 0 0; }
         .calendar-card .calendar-body .calendar-day h6.current-day {
           color: white;
           z-index: 50; }
       .calendar-card .calendar-body .calendar-day .current-day-mark {
         border-radius: 100%;
-        background-color: blue;
+        background-color: #ff9800;
         display: block;
-        margin: 8px 0 0 0;
+        margin: 4px 0 0 0;
         position: absolute;
         z-index: 10;
         width: 24px;
         height: 24px; }
+      .calendar-card .calendar-body .calendar-day:hover {
+        background-color: lightgray; }

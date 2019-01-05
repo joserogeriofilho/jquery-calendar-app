@@ -9,6 +9,19 @@ var lastDay = new Date(currentYear, currentMonth+1, 0);
 var startingWeekDay = firstDay.getDay();
 
 var days = [];
+var appointments = [];
+
+/*class User {
+
+    constructor(name) {
+      this.name = name;
+    }
+  
+    sayHi() {
+      alert(this.name);
+    }
+  
+}*/
 
 
 function fillMonth(){
@@ -32,7 +45,7 @@ function fillDays(){
 
     let currentDayMark = document.createElement("div");
     currentDayMark.className = "current-day-mark";
-    
+
     days[startingWeekDay+currentDay-1].appendChild(currentDayMark);
     days[startingWeekDay+currentDay-1].firstChild.className ="current-day";
 
@@ -45,8 +58,8 @@ $(function(){
 
     fillDays();
 
-    /*$(".test").hover(function(){
-        $(".test").hide();
-    });*/
+    $(".calendar-day").click(function(){
+        alert($(this).index());
+    });
   
   });
