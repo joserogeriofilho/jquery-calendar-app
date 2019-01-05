@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<div class="calendar-card">
-			<div class="calendar-title"></div>
+			<div class="calendar-header"></div>
 			<div class="calendar-week-header">
 				<div>SUN</div>
 				<div>MON</div>
@@ -19,6 +19,28 @@
 			</div>
 
 			<div class="calendar-body">
+			</div>
+		</div>
+
+		<div class="scrim">
+			<div class="dialog-appointment">
+				<div class="dialog-appointment-header"><h6>APPOINTMENT</h6></div>
+				<div class="dialog-appointment-body">
+						<label for="title">First Name</label>
+						<input type="text" id="title" name="title"></input>
+						
+						<label for="description">Description</label>
+						<textarea type="text" id="description" name="description"></textarea>
+				</div>
+				<div class="dialog-appointment-actions">
+					<div class="float-left">
+						<a class="btn-flat btn-error" href="#">DELETE</a>
+					</div>
+					<div class="float-right">
+						<a class="btn-flat btn-default" id="btn-cancel-dialog" href="#">CANCEL</a>
+						<a class="btn-flat btn-primary" href="#">SAVE</a>
+					</div>
+				</div>
 			</div>
 		</div>
 

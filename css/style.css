@@ -19,13 +19,33 @@ body {
   justify-content: center;
   align-items: center; }
 
+.float-left {
+  float: left; }
+
+.float-right {
+  float: right; }
+
+.btn-flat {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 0.875rem;
+  margin: 16px;
+  text-decoration: none; }
+  .btn-flat.btn-default {
+    color: #bdbdbd; }
+  .btn-flat.btn-primary {
+    color: #3f51b5; }
+  .btn-flat.btn-error {
+    color: #b00020; }
+
 .calendar-card {
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   background-color: white; }
-  .calendar-card .calendar-title {
+  .calendar-card .calendar-header {
     background-color: #3f51b5;
     color: white;
-    height: 40px;
+    height: 56px;
+    text-transform: uppercase;
     display: flex;
     justify-content: center;
     align-items: center; }
@@ -63,13 +83,13 @@ body {
       border-width: 0 1px 1px 0;
       width: 64px;
       height: 64px;
-      z-index: 50; }
+      z-index: 1; }
       .calendar-card .calendar-body .calendar-day h6 {
         font-size: 0.875rem;
         margin: 8px 0 0 0; }
         .calendar-card .calendar-body .calendar-day h6.current-day {
           color: white;
-          z-index: 50; }
+          z-index: 20; }
       .calendar-card .calendar-body .calendar-day .current-day-mark {
         border-radius: 100%;
         background-color: #ff9800;
@@ -81,3 +101,37 @@ body {
         height: 24px; }
       .calendar-card .calendar-body .calendar-day:hover {
         background-color: lightgray; }
+
+.scrim {
+  background-color: rgba(0, 0, 0, 0.35);
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 50; }
+  .scrim.visible {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+
+.dialog-appointment {
+  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+  background-color: white;
+  border-radius: 4px;
+  width: 280px; }
+  .dialog-appointment .dialog-appointment-header {
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-color: #bdbdbd;
+    border-width: 0 0 1px 0; }
+    .dialog-appointment .dialog-appointment-header h6 {
+      font-size: 0.875rem; }
+  .dialog-appointment .dialog-appointment-body {
+    padding: 20px; }
+  .dialog-appointment .dialog-appointment-actions {
+    border-style: solid;
+    border-color: #bdbdbd;
+    border-width: 1px 0 0 0; }

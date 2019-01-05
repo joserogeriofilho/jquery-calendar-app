@@ -4,10 +4,12 @@ $day-size: 64px;
     @include elevation(1);
     background-color: white;
 
-    .calendar-title{
+    .calendar-header{
         background-color: $primary;
         color: white;
-        height: 40px;
+        height: 56px;
+        text-transform: uppercase;
+        
         display: flex;
         justify-content: center;
         align-items: center;
@@ -60,7 +62,7 @@ $day-size: 64px;
 
             width: $day-size;
             height: $day-size;
-            z-index: 50;
+            z-index: 1;
 
             h6{
                 font-size: 0.875rem;
@@ -68,7 +70,7 @@ $day-size: 64px;
 
                 &.current-day{
                     color: white;
-                    z-index: 50;
+                    z-index: 20;
                 }
             }
 

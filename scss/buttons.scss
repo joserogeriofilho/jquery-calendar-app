@@ -1,0 +1,19 @@
+.btn-flat{
+    display: inline-block;
+    font-weight: 500;
+    font-size: 0.875rem;
+    margin: 16px;
+    text-decoration: none;
+
+    &.btn-default{
+        color: $divider;
+    }
+
+    &.btn-primary{
+        color: $primary;
+    }
+
+    &.btn-error{
+        color: $error;
+    }
+}

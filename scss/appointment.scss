@@ -1,0 +1,48 @@
+.scrim{
+    background-color: rgba(black, 0.35);
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    z-index: 50;
+
+    &.visible{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.dialog-appointment{
+    @include elevation(24);
+    background-color: white;
+    border-radius: 4px;
+
+    width: 280px;
+
+    .dialog-appointment-header{
+        height: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-style: solid;
+        border-color: $divider;
+        border-width: 0 0 1px 0;
+
+        h6{
+            font-size: 0.875rem;
+        }
+    }
+
+    .dialog-appointment-body{
+        padding: 20px;
+    }
+
+    .dialog-appointment-actions{
+        border-style: solid;
+        border-color: $divider;
+        border-width: 1px 0 0 0;
+    }
+}

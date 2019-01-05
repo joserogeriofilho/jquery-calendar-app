@@ -1,3 +1,5 @@
+var months = ["January", "February", "March", "April", "June", "July", "August", "September", "October", "November", "December"];
+
 var currentDate = new Date();
 
 var currentYear = currentDate.getFullYear();
@@ -25,9 +27,7 @@ var appointments = [];
 
 
 function fillMonth(){
-    let months = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"];
-
-    $(".calendar-title").append("<h6>"+months[currentMonth]+"</h6>");
+    $(".calendar-header").append("<h6>"+months[currentMonth]+"</h6>");
 }
 
 function fillDays(){
@@ -59,7 +59,14 @@ $(function(){
     fillDays();
 
     $(".calendar-day").click(function(){
-        alert($(this).index());
+        let selectedDay = $(this).index()-startingWeekDay+1;
+        
+        $(".dialog-appointment-header").html("<h6>" + selectedDay + " of " + months[currentMonth] + "</h6>");
+        $(".scrim").addClass("visible");
+    });
+
+    $("#btn-cancel-dialog").click(function(){
+        $(".scrim").toggleClass("visible");
     });
   
   });
