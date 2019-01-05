@@ -9,5 +9,12 @@ body {
 
 .calendar-card {
   border: 1px solid #bdbdbd;
-  width: 600px;
-  height: 450px; }
+  width: 595px;
+  height: 425px; }
+  .calendar-card .calendar-body {
+    display: flex;
+    flex-wrap: wrap; }
+    .calendar-card .calendar-body .calendar-day {
+      border: 1px solid #bdbdbd;
+      width: 80px;
+      height: 80px; }
