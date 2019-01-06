@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<title>Calendar App</title>
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	</head>
 	<body>
 		<div class="calendar-card">
@@ -26,19 +27,23 @@
 			<div class="dialog-appointment">
 				<div class="dialog-appointment-header"><h6>APPOINTMENT</h6></div>
 				<div class="dialog-appointment-body">
-						<label for="title">First Name</label>
-						<input type="text" id="title" name="title"></input>
+						<div class="form-group">
+							<label for="title">Title</label>
+							<input type="text" id="title" name="title"></input>
+						</div>
 						
-						<label for="description">Description</label>
-						<textarea type="text" id="description" name="description"></textarea>
+						<div class="form-group">
+							<label for="description">Description</label>
+							<textarea type="text" id="description" name="description"></textarea>
+						</div>
 				</div>
 				<div class="dialog-appointment-actions">
 					<div class="float-left">
-						<a class="btn-flat btn-error" href="#">DELETE</a>
+						<a class="btn-flat btn-error" id="btn-delete" href="#">DELETE</a>
 					</div>
 					<div class="float-right">
-						<a class="btn-flat btn-default" id="btn-cancel-dialog" href="#">CANCEL</a>
-						<a class="btn-flat btn-primary" href="#">SAVE</a>
+						<a class="btn-flat btn-default" id="btn-cancel" href="#">CANCEL</a>
+						<a class="btn-flat btn-accent" id="btn-save" href="#">SAVE</a>
 					</div>
 				</div>
 			</div>

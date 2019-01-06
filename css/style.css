@@ -32,11 +32,43 @@ body {
   margin: 16px;
   text-decoration: none; }
   .btn-flat.btn-default {
-    color: #bdbdbd; }
+    color: #616161; }
   .btn-flat.btn-primary {
     color: #3f51b5; }
+  .btn-flat.btn-accent {
+    color: #ff9800; }
   .btn-flat.btn-error {
     color: #b00020; }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px; }
+  .form-group label {
+    color: #212121;
+    font-size: 0.75rem;
+    margin-bottom: 8px; }
+  .form-group input {
+    border: 1px solid #bdbdbd;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+    padding: 8px; }
+  .form-group textarea {
+    border: 1px solid #bdbdbd;
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    height: 40px;
+    outline: none;
+    padding: 8px;
+    resize: none; }
+  .form-group:last-child {
+    margin-bottom: 0; }
+  .form-group.has-focus label {
+    color: #ff9800; }
+  .form-group.has-focus input, .form-group.has-focus textarea {
+    border-color: #ff9800; }
 
 .calendar-card {
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
@@ -77,10 +109,12 @@ body {
     border-width: 0 0 0 1px; }
     .calendar-card .calendar-body .calendar-day {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
       border-style: solid;
       border-color: #bdbdbd;
       border-width: 0 1px 1px 0;
+      cursor: pointer;
       width: 64px;
       height: 64px;
       z-index: 1; }
@@ -99,11 +133,17 @@ body {
         z-index: 10;
         width: 24px;
         height: 24px; }
-      .calendar-card .calendar-body .calendar-day:hover {
-        background-color: lightgray; }
+      .calendar-card .calendar-body .calendar-day .hover-icon {
+        margin-top: 6px;
+        color: white; }
+      .calendar-card .calendar-body .calendar-day .fixed-icon {
+        margin-top: 6px;
+        color: #ff9800; }
+      .calendar-card .calendar-body .calendar-day:hover .hover-icon {
+        color: #bdbdbd; }
 
 .scrim {
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: rgba(0, 0, 0, 0.45);
   display: none;
   position: absolute;
   width: 100%;

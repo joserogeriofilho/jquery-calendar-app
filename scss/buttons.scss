@@ -6,11 +6,15 @@
     text-decoration: none;
 
     &.btn-default{
-        color: $divider;
+        color: $gray-700;
     }
 
     &.btn-primary{
         color: $primary;
+    }
+
+    &.btn-accent{
+        color: $accent;
     }
 
     &.btn-error{
