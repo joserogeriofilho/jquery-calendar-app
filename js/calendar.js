@@ -1,39 +1,40 @@
-var months = ["January", "February", "March", "April", "June", "July", "August", "September", "October", "November", "December"];
+const months = ["January", "February", "March", "April", "June", "July", "August", "September", "October", "November", "December"];
 
-var currentDate = new Date();
+let currentDate = new Date();
 
-var currentYear = currentDate.getFullYear();
-var currentMonth = currentDate.getMonth();
-var currentDay = currentDate.getDate();
+let currentYear = currentDate.getFullYear();
+let currentMonth = currentDate.getMonth();
+let currentDay = currentDate.getDate();
 
-var firstDayofMonth = new Date(currentYear, currentMonth+1, 0).getDate();
-var startingWeekDay = new Date(currentYear, currentMonth, 1).getDay();
+let startingWeekDay = new Date(currentYear, currentMonth, 1).getDay();
 
-var selectedIndex;
-var selectedDay;
+let selectedIndex;
 
-var days = [];
-var appointments = [];
+let days = [];
+let appointments = [];
 
 class Appointment {
-    constructor(title, description) {
+    constructor (title, description) {
       this.title = title;
       this.description = description;
     }
-  
-    sayHi() {
-      alert(this.title);
-    } 
 }
 
-function fillMonth(){
-    $(".calendar-header").append("<h6>"+months[currentMonth]+"</h6>");
+function fillMonth() {
+    let calendarHeader = $(".calendar-header");
+    calendarHeader.empty();
+    calendarHeader.append("<h6>"+months[currentMonth]+"</h6>");
 }
 
-function fillDays(){
-    let i,j=1;
+function fillDays() {
+    let i,j=1, firstDayofMonth, calendarBody;
 
-    for(i = 0; i < 35; i++){
+    firstDayofMonth = new Date(currentYear, currentMonth+1, 0).getDate();
+
+    calendarBody = $(".calendar-body");
+    calendarBody.empty();
+
+    for (i = 0; i < 35; i++) {
         let d = document.createElement("div");
         d.className = "calendar-day";
 
@@ -52,31 +53,30 @@ function fillDays(){
     days[startingWeekDay+currentDay-1].appendChild(currentDayMark);
     days[startingWeekDay+currentDay-1].firstChild.className ="current-day";
 
-    $(".calendar-body").append(days);
+    calendarBody.append(days);
 }
 
-function closeDialog(){
+function closeDialog() {
     $(".scrim").removeClass("visible");
 }
 
-$(function(){    
+$( function() {    
     fillMonth();
 
     fillDays();
 
-    // Forms
-    $(".form-group").on("focusin", function(){
+    // Events
+    $(".form-group").on("focusin", function() {
         $(this).addClass("has-focus");
     });
 
-    $(".form-group").on("focusout", function(){
+    $(".form-group").on("focusout", function() {
         $(this).removeClass("has-focus");
     });
 
-
-    $(".available-day").click(function(){
+    $(".available-day").click(function() {
         selectedIndex = $(this).index();
-        selectedDay = selectedIndex-startingWeekDay+1;
+        let selectedDay = selectedIndex-startingWeekDay+1;
 
         $(".dialog-appointment-header").html("<h6>"+selectedDay+" of "+months[currentMonth]+"</h6>");
         $(".scrim").addClass("visible");
@@ -92,7 +92,7 @@ $(function(){
         }
     });
 
-    $("#btn-delete").click(function(){
+    $("#btn-delete").click(function() {
         appointments[selectedIndex] = null;
 
         let eventiIcon = $(".calendar-day:nth-child("+(selectedIndex+1)+") #day-icon");
@@ -104,11 +104,11 @@ $(function(){
         closeDialog();
     });
 
-    $("#btn-cancel").click(function(){
+    $("#btn-cancel").click(function() {
         closeDialog();
     });
 
-    $("#btn-save").click(function(){
+    $("#btn-save").click(function() {
         appointments[selectedIndex] = new Appointment($("#title").val(), $("#description").val());
 
         let eventiIcon = $(".calendar-day:nth-child("+(selectedIndex+1)+") #day-icon");
