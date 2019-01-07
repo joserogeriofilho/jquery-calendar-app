@@ -6,9 +6,8 @@ var currentYear = currentDate.getFullYear();
 var currentMonth = currentDate.getMonth();
 var currentDay = currentDate.getDate();
 
-var firstDayMonth = new Date(currentYear, currentMonth, 1);
-var lastDayMonth = new Date(currentYear, currentMonth+1, 0);
-var startingWeekDay = firstDayMonth.getDay();
+var firstDayofMonth = new Date(currentYear, currentMonth+1, 0).getDate();
+var startingWeekDay = new Date(currentYear, currentMonth, 1).getDay();
 
 var selectedIndex;
 var selectedDay;
@@ -32,16 +31,19 @@ function fillMonth(){
 }
 
 function fillDays(){
-    let i,j;
+    let i,j=1;
 
     for(i = 0; i < 35; i++){
         let d = document.createElement("div");
         d.className = "calendar-day";
-        days.push(d);
-    }
 
-    for(i=1, j = startingWeekDay; j < lastDayMonth.getDate()+startingWeekDay; i++, j++){
-        days[j].innerHTML = "<h6>"+i+"</h6><i id='day-icon' class='material-icons hover-icon'>add_circle</i>";
+        if(i >= startingWeekDay && i < firstDayofMonth+startingWeekDay){
+            j >= currentDay && d.classList.add("available-day");
+            d.innerHTML = "<h6>"+j+"</h6><i id='day-icon' class='material-icons hover-icon'>add_circle</i>";
+            j++;
+        }
+
+        days.push(d);
     }
 
     let currentDayMark = document.createElement("div");
@@ -72,7 +74,7 @@ $(function(){
     });
 
 
-    $(".calendar-day").click(function(){
+    $(".available-day").click(function(){
         selectedIndex = $(this).index();
         selectedDay = selectedIndex-startingWeekDay+1;
 
