@@ -9,10 +9,15 @@ $day-size: 64px;
         color: white;
         height: 56px;
         text-transform: uppercase;
+        padding: 0 16px 0 16px;
         
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
+
+        .month-control{
+            cursor: pointer;
+        }
     }
 
     .calendar-week-header{

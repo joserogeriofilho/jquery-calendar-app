@@ -84,9 +84,12 @@ body {
     color: white;
     height: 56px;
     text-transform: uppercase;
+    padding: 0 16px 0 16px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center; }
+    .calendar-card .calendar-header .month-control {
+      cursor: pointer; }
   .calendar-card .calendar-week-header {
     display: flex;
     justify-content: center;
