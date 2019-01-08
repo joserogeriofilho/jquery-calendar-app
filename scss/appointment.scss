@@ -14,14 +14,14 @@
     }
 }
 
-.dialog-appointment{
+.dialog-card{
     @include elevation(24);
     background-color: white;
     border-radius: 4px;
 
-    width: 280px;
+    width: 300px;
 
-    .dialog-appointment-header{
+    .dialog-header{
         height: 36px;
         display: flex;
         justify-content: center;
@@ -36,13 +36,30 @@
         }
     }
 
-    .dialog-appointment-body{
+    .dialog-body{
         padding: 20px;
     }
 
-    .dialog-appointment-actions{
+    .dialog-actions{
         border-style: solid;
         border-color: $divider;
         border-width: 1px 0 0 0;
     }
+
+    #dialog-appointment-subtitle{
+        text-align: center;
+        margin-top: 0;
+    }
+
+    #dialog-confirmation{
+        text-align: center;
+    }
+}
+
+.visible{
+    display: block;
+}
+
+.invisible{
+    display: none;
 }

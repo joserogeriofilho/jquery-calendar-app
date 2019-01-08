@@ -8,6 +8,8 @@ let currentDay = currentDate.getDate();
 
 let selectedIndex;
 let selectedMonth = currentMonth;
+let selectedDay;
+
 let startingWeekDay = new Date( currentYear, selectedMonth, 1 ).getDay();
 
 let appointments = [];
@@ -16,6 +18,14 @@ class Appointment {
     constructor (title, description) {
       this.title = title;
       this.description = description;
+    }
+}
+
+function initializeAppointments () {
+    let i;
+
+    for( i = 0; i < 12; i++ ) {
+        appointments[i] = [];
     }
 }
 
@@ -90,16 +100,18 @@ function fillDays () {
     calendarBody.append( days );
 }
 
-function initializeAppointments () {
-    let i;
-
-    for( i = 0; i < 12; i++ ) {
-        appointments[i] = [];
-    }
-}
-
 function getDayIcon(){
     return $( ".calendar-day:nth-child(" + ( selectedIndex + 1 ) + ") #day-icon" );
+}
+
+function saveAppointment(){
+    let dayIcon = getDayIcon();
+
+    appointments[selectedMonth][selectedDay] = new Appointment( $( "#title" ).val(), $( "#description" ).val() );
+
+    dayIcon.html("event");
+    dayIcon.removeClass("hover-icon");
+    dayIcon.addClass("fixed-icon");
 }
 
 function closeDialog() {
@@ -138,11 +150,10 @@ $( function() {
 
     $( "body" ).on( "click", ".available-day", function() {
         selectedIndex = $( this ).index();
+        selectedDay = selectedIndex-startingWeekDay+1;
 
-        let selectedDay = selectedIndex-startingWeekDay+1;
-        let calendarTitle = selectedDay + " of " + months[selectedMonth] + "</h6>";
-
-        $( ".dialog-appointment-header" ).html( calendarTitle );
+        $( "#dialog-appointment-title" ).html( "APPOINTMENT" );
+        $( "#dialog-appointment-subtitle" ).html( selectedDay + " of " + months[selectedMonth] );
         $( ".scrim" ).addClass( "visible" );
 
         let a = appointments[selectedMonth][selectedDay];
@@ -150,19 +161,21 @@ $( function() {
         if( a != null ){
             $( "#title" ).val( a.title );
             $( "#description" ).val( a.description );
-            $( "#btn-delete" ).removeClass( "btn-hidden" );
+            $( "#btn-delete-appointment" ).removeClass( "btn-hidden" );
+            $( "#btn-save-appointment" ).html( "SAVE" );
         }else{
             $( "#title" ).val( "" );
             $( "#description" ).val( "" );
-            $( "#btn-delete" ).addClass( "btn-hidden" );
+            $( "#btn-delete-appointment" ).addClass( "btn-hidden" );
+            $( "#btn-save-appointment" ).html( "CREATE" );
         }
     });
 
-    $( "#btn-cancel" ).click(function() {
+    $( "#btn-cancel-appointment" ).click(function() {
         closeDialog();
     });
 
-    $( "#btn-delete" ).click(function() {
+    $( "#btn-delete-appointment" ).click(function() {
         let selectedDay = selectedIndex-startingWeekDay+1;
         let dayIcon = getDayIcon();
 
@@ -175,17 +188,33 @@ $( function() {
         closeDialog();
     });
 
-    $( "#btn-save" ).click(function() {
+    $( "#btn-save-appointment" ).click(function() {
         let selectedDay = selectedIndex-startingWeekDay+1;
-        let dayIcon = getDayIcon();
 
-        appointments[selectedMonth][selectedDay] = new Appointment( $( "#title" ).val(), $( "#description" ).val() );
+        let a = appointments[selectedMonth][selectedDay];
 
-        dayIcon.html("event");
-        dayIcon.removeClass("hover-icon");
-        dayIcon.addClass("fixed-icon");
+        if( a != null ) {
+            $( "#dialog-appointment" ).addClass( "invisible" );
+            $( "#dialog-confirmation" ).removeClass( "invisible" );
 
+            return;
+        }
+
+        saveAppointment();
         closeDialog();
+    });
+
+    $( "#btn-cancel-confirmation" ).click(function() {
+        $( "#dialog-appointment" ).removeClass( "invisible" );
+        $( "#dialog-confirmation" ).addClass( "invisible" );
+    });
+
+    $( "#btn-accept-confirmation" ).click(function() {
+        saveAppointment();
+        closeDialog();
+
+        $( "#dialog-appointment" ).removeClass( "invisible" );
+        $( "#dialog-confirmation" ).addClass( "invisible" );
     });
 
     $( ".form-group" ).on( "focusin" , function() {
