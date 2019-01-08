@@ -1,4 +1,4 @@
-const months = ["January", "February", "March", "April", "June", "July", "August", "September", "October", "November", "December"];
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 let currentDate = new Date();
 
@@ -21,38 +21,56 @@ class Appointment {
 }
 
 function fillMonth() {
-    $( "#month-title" ).text(months[currentMonth]);
+    $( "#month-title" ).text(months[selectedMonth]);
 }
 
 function fillDays() {
-    let i,j=1, firstDayofMonth, calendarBody;
+    let i, lastDayofMonth, calendarBody;
 
-    firstDayofMonth = new Date( currentYear, selectedMonth+1, 0 ).getDate();
+    lastDayofMonth = new Date( currentYear, selectedMonth+1, 0 ).getDate();
 
     calendarBody = $( ".calendar-body" );
     calendarBody.empty();
 
-    for ( i = 0; i < 35; i++ ) {
+    // Filling boxes
+    for ( i=0; i < startingWeekDay; i++ ) {
         let d = document.createElement( "div" );
         d.className = "calendar-day";
-
-        if( i >= startingWeekDay && i < firstDayofMonth+startingWeekDay ) {
-            j >= currentDay && d.classList.add( "available-day" );
-
-            d.innerHTML = "<h6>" + j + "</h6>"
-                + "<i id='day-icon' class='material-icons hover-icon'>add_circle</i>";
-
-            j++;
-        }
 
         days.push(d);
     }
 
-    let currentDayMark = document.createElement( "div" );
-    currentDayMark.className = "current-day-mark";
+    // Actual days of the month
+    for ( i = 1; i <= lastDayofMonth; i++ ) {
+        let d = document.createElement( "div" );
+        d.className = "calendar-day";
 
-    days[startingWeekDay+currentDay-1].appendChild( currentDayMark );
-    days[startingWeekDay+currentDay-1].firstChild.className = "current-day";
+        i >= currentDay && d.classList.add( "available-day" );
+
+        d.innerHTML = "<h6>" + i + "</h6>"
+            + "<i id='day-icon' class='material-icons hover-icon'>add_circle</i>";
+
+        days.push(d);
+    }
+
+    let fillingBox = days.length > 35 ? 42-days.length : 35-days.length;
+
+    // Last filling boxes
+    for (i = 0; i < fillingBox; i++ ) {
+        let d = document.createElement( "div" );
+        d.className = "calendar-day";
+
+        days.push(d);
+    }
+
+    // Give the current day a mark
+    if(selectedMonth === currentMonth){
+        let currentDayMark = document.createElement( "div" );
+        currentDayMark.className = "current-day-mark";
+    
+        days[startingWeekDay+currentDay-1].appendChild( currentDayMark );
+        days[startingWeekDay+currentDay-1].firstChild.className = "current-day";
+    }
 
     calendarBody.append( days );
 }

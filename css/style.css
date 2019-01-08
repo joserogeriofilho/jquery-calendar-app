@@ -110,7 +110,6 @@ body {
         border: none; }
   .calendar-card .calendar-body {
     width: 455px;
-    height: 325px;
     display: flex;
     flex-wrap: wrap;
     border-style: solid;

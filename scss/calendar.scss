@@ -48,7 +48,7 @@ $day-size: 64px;
 
     .calendar-body{
         width: ($day-size+1)*7;
-        height: ($day-size+1)*5;
+        //height: ($day-size+1)*5;
 
         display: flex;
         flex-wrap: wrap;
