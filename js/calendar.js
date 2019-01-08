@@ -20,7 +20,15 @@ class Appointment {
 }
 
 function fillMonth () {
+    let previousButton = $( "#previous-month" );
+    let nextButton = $( "#next-month" );
+    
     $( "#month-title" ).text(months[selectedMonth]);
+
+    previousButton.removeClass("");
+
+    selectedMonth === 0 ? previousButton.addClass( "control-hidden" ) : previousButton.removeClass( "control-hidden" );
+    selectedMonth === 11 ? nextButton.addClass( "control-hidden" ) : nextButton.removeClass( "control-hidden" );
 }
 
 function fillDays () {
@@ -142,9 +150,11 @@ $( function() {
         if( a != null ){
             $( "#title" ).val( a.title );
             $( "#description" ).val( a.description );
+            $( "#btn-delete" ).removeClass( "btn-hidden" );
         }else{
             $( "#title" ).val( "" );
             $( "#description" ).val( "" );
+            $( "#btn-delete" ).addClass( "btn-hidden" );
         }
     });
 

@@ -30,4 +30,8 @@
     &:hover{
         background-color: $gray-200;
     }
+
+    &.btn-hidden{
+        visibility: hidden;
+    }
 }

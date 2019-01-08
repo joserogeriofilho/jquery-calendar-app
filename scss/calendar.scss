@@ -17,6 +17,10 @@ $day-size: 64px;
 
         .month-control{
             cursor: pointer;
+
+            &.control-hidden{
+                visibility: hidden;
+            }
         }
     }
 
