@@ -110,52 +110,53 @@ body {
         border: none; }
   .calendar-card .calendar-body {
     width: 455px;
-    display: flex;
-    flex-wrap: wrap;
     border-style: solid;
     border-color: #bdbdbd;
     border-width: 0 0 0 1px; }
-    .calendar-card .calendar-body .calendar-day {
+    .calendar-card .calendar-body .calendar-month {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: white;
-      border-style: solid;
-      border-color: #bdbdbd;
-      border-width: 0 1px 1px 0;
-      width: 64px;
-      height: 64px;
-      z-index: 1; }
-      .calendar-card .calendar-body .calendar-day h6 {
-        color: #bdbdbd;
-        font-size: 0.875rem;
-        margin: 8px 0 0 0; }
-      .calendar-card .calendar-body .calendar-day .hover-icon {
-        display: none; }
-      .calendar-card .calendar-body .calendar-day .fixed-icon {
-        margin-top: 6px;
-        color: #ff9800; }
-      .calendar-card .calendar-body .calendar-day.available-day {
+      flex-wrap: wrap; }
+      .calendar-card .calendar-body .calendar-month .calendar-day {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         background-color: white;
-        cursor: pointer; }
-        .calendar-card .calendar-body .calendar-day.available-day h6 {
-          color: #212121; }
-          .calendar-card .calendar-body .calendar-day.available-day h6.current-day {
-            color: white;
-            z-index: 20; }
-        .calendar-card .calendar-body .calendar-day.available-day .current-day-mark {
-          border-radius: 100%;
-          background-color: #ff9800;
-          display: block;
-          margin: 4px 0 0 0;
-          position: absolute;
-          z-index: 10;
-          width: 24px;
-          height: 24px; }
-        .calendar-card .calendar-body .calendar-day.available-day:hover .hover-icon {
+        border-style: solid;
+        border-color: #bdbdbd;
+        border-width: 0 1px 1px 0;
+        width: 64px;
+        height: 64px;
+        z-index: 1; }
+        .calendar-card .calendar-body .calendar-month .calendar-day h6 {
           color: #bdbdbd;
-          display: block;
-          margin-top: 6px; }
+          font-size: 0.875rem;
+          margin: 8px 0 0 0; }
+        .calendar-card .calendar-body .calendar-month .calendar-day .hover-icon {
+          display: none; }
+        .calendar-card .calendar-body .calendar-month .calendar-day .fixed-icon {
+          margin-top: 6px;
+          color: #ff9800; }
+        .calendar-card .calendar-body .calendar-month .calendar-day.available-day {
+          background-color: white;
+          cursor: pointer; }
+          .calendar-card .calendar-body .calendar-month .calendar-day.available-day h6 {
+            color: #212121; }
+            .calendar-card .calendar-body .calendar-month .calendar-day.available-day h6.current-day {
+              color: white;
+              z-index: 20; }
+          .calendar-card .calendar-body .calendar-month .calendar-day.available-day .current-day-mark {
+            border-radius: 100%;
+            background-color: #ff9800;
+            display: block;
+            margin: 4px 0 0 0;
+            position: absolute;
+            z-index: 10;
+            width: 24px;
+            height: 24px; }
+          .calendar-card .calendar-body .calendar-month .calendar-day.available-day:hover .hover-icon {
+            color: #bdbdbd;
+            display: block;
+            margin-top: 6px; }
 
 .scrim {
   background-color: rgba(0, 0, 0, 0.45);

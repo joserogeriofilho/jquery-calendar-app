@@ -48,75 +48,75 @@ $day-size: 64px;
 
     .calendar-body{
         width: ($day-size+1)*7;
-        //height: ($day-size+1)*5;
-
-        display: flex;
-        flex-wrap: wrap;
 
         border-style: solid;
         border-color: $divider;
         border-width: 0 0 0 1px;
 
-        .calendar-day{
+        .calendar-month{
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: white;
-            border-style: solid;
-            border-color: $divider;
-            border-width: 0 1px 1px 0;
-            width: $day-size;
-            height: $day-size;
-            z-index: 1;
+            flex-wrap: wrap;
 
-            h6{
-                color: $divider;
-                font-size: 0.875rem;
-                margin: 8px 0 0 0;
-            }
-
-            .hover-icon{
-                display: none;
-            }
-
-            .fixed-icon{
-                margin-top: 6px;
-                color: $accent;
-            }
-
-            &.available-day{
+            .calendar-day{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
                 background-color: white;
-                cursor: pointer;
-
+                border-style: solid;
+                border-color: $divider;
+                border-width: 0 1px 1px 0;
+                width: $day-size;
+                height: $day-size;
+                z-index: 1;
+    
                 h6{
-                    color: $primary-text;
-
-                    &.current-day{
-                        color: white;
-                        z-index: 20;
+                    color: $divider;
+                    font-size: 0.875rem;
+                    margin: 8px 0 0 0;
+                }
+    
+                .hover-icon{
+                    display: none;
+                }
+    
+                .fixed-icon{
+                    margin-top: 6px;
+                    color: $accent;
+                }
+    
+                &.available-day{
+                    background-color: white;
+                    cursor: pointer;
+    
+                    h6{
+                        color: $primary-text;
+    
+                        &.current-day{
+                            color: white;
+                            z-index: 20;
+                        }
                     }
-                }
-
-                .current-day-mark{ 
-                    border-radius: 100%;
-                    background-color: $accent;
-                    display: block;
-                    margin: 4px 0 0 0;
-                    position: absolute;
-                    z-index: 10;
-                    width: 24px;
-                    height: 24px;
-                }
-
-                &:hover{
-                    .hover-icon{
-                        color: $divider;
+    
+                    .current-day-mark{
+                        border-radius: 100%;
+                        background-color: $accent;
                         display: block;
-                        margin-top: 6px;
+                        margin: 4px 0 0 0;
+                        position: absolute;
+                        z-index: 10;
+                        width: 24px;
+                        height: 24px;
+                    }
+    
+                    &:hover{
+                        .hover-icon{
+                            color: $divider;
+                            display: block;
+                            margin-top: 6px;
+                        }
                     }
                 }
             }
-
         }
     }
 }

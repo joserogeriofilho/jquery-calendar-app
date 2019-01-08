@@ -10,7 +10,6 @@ let selectedIndex;
 let selectedMonth = currentMonth;
 let startingWeekDay = new Date( currentYear, selectedMonth, 1 ).getDay();
 
-let days = [];
 let appointments = [];
 
 class Appointment {
@@ -25,19 +24,16 @@ function fillMonth() {
 }
 
 function fillDays() {
-    let i, lastDayofMonth, calendarBody;
+    let i, lastDayofMonth, days = [];
 
     lastDayofMonth = new Date( currentYear, selectedMonth+1, 0 ).getDate();
 
-    calendarBody = $( ".calendar-body" );
-    calendarBody.empty();
-
-    // Filling boxes
+    // Initial filling boxes
     for ( i=0; i < startingWeekDay; i++ ) {
         let d = document.createElement( "div" );
         d.className = "calendar-day";
 
-        days.push(d);
+        days.push( d );
     }
 
     // Actual days of the month
@@ -45,7 +41,8 @@ function fillDays() {
         let d = document.createElement( "div" );
         d.className = "calendar-day";
 
-        i >= currentDay && d.classList.add( "available-day" );
+        ( selectedMonth > currentMonth || ( selectedMonth === currentMonth && i >= currentDay ) )
+            && d.classList.add( "available-day" );
 
         d.innerHTML = "<h6>" + i + "</h6>"
             + "<i id='day-icon' class='material-icons hover-icon'>add_circle</i>";
@@ -72,6 +69,8 @@ function fillDays() {
         days[startingWeekDay+currentDay-1].firstChild.className = "current-day";
     }
 
+    let calendarBody = $( ".calendar-month" );
+    calendarBody.empty();
     calendarBody.append( days );
 }
 
@@ -90,6 +89,9 @@ $( function() {
     // Events
 
     $( "#previous-month" ).click( function() {
+        if ( selectedMonth === 0)
+            return;
+
         selectedMonth--;
         startingWeekDay = new Date( currentYear, selectedMonth, 1 ).getDay();
 
@@ -98,6 +100,9 @@ $( function() {
     });
 
     $( "#next-month" ).click( function() {
+        if ( selectedMonth === 11)
+            return;
+
         selectedMonth++;
         startingWeekDay = new Date( currentYear, selectedMonth, 1 ).getDay();
 
