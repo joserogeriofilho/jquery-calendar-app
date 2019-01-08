@@ -26,11 +26,15 @@ body {
   float: right; }
 
 .btn-flat {
+  border-radius: 4px;
   display: inline-block;
   font-weight: 500;
   font-size: 0.875rem;
-  margin: 16px;
+  margin: 8px;
+  padding: 16px;
   text-decoration: none; }
+  .btn-flat + .btn-flat {
+    margin-left: 0; }
   .btn-flat.btn-default {
     color: #616161; }
   .btn-flat.btn-primary {
@@ -39,6 +43,8 @@ body {
     color: #ff9800; }
   .btn-flat.btn-error {
     color: #b00020; }
+  .btn-flat:hover {
+    background-color: #EEEEEE; }
 
 .form-group {
   display: flex;

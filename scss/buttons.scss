@@ -1,9 +1,15 @@
 .btn-flat{
+    border-radius: 4px;
     display: inline-block;
     font-weight: 500;
     font-size: 0.875rem;
-    margin: 16px;
+    margin: 8px;
+    padding: 16px;
     text-decoration: none;
+
+    &+.btn-flat{
+        margin-left: 0;
+    }
 
     &.btn-default{
         color: $gray-700;
@@ -19,5 +25,9 @@
 
     &.btn-error{
         color: $error;
+    }
+
+    &:hover{
+        background-color: $gray-200;
     }
 }
