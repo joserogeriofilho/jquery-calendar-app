@@ -7,7 +7,7 @@ A calendar app build in Javascript for a HackerRank as a HTML/CSS/Javascript cha
 
 * Show all dates for the current month;
 * Allow the selection of a different month for the current year;
-Allow one appointment per day for the current day or a future date;
+* Allow one appointment per day for the current day or a future date;
 * Allow to edit or delete an appointment.
 
 ### Live Demo
