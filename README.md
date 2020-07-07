@@ -11,7 +11,7 @@ A calendar app build in Javascript for a HackerRank as a HTML/CSS/Javascript cha
 * Allow to edit or delete an appointment.
 
 ### Live Demo
-[https://jquery-calendar-app.herokuapp.com/](https://jquery-calendar-app.herokuapp.com/)
+[https://joserogeriofilho.github.io/jquery-calendar-app/](https://joserogeriofilho.github.io/jquery-calendar-app/)
 
 ### The Author
 * [Behance](https://www.behance.net/joserogeriofilho)
